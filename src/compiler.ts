@@ -1,4 +1,4 @@
-import { compileScript, parse } from 'vue/compiler-sfc'
+import { compileScript, parse } from '@vue/compiler-sfc'
 
 export function compile(str: string) {
   const id = 'vue-termui-parser'

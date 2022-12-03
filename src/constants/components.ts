@@ -41,6 +41,7 @@ import { TuiBox, TuiText } from 'vue-termui'
 <script setup>
   import { TuiBox, TuiText, TuiNewline } from 'vue-termui'
 </script>
+
 <template>
   <TuiText>
     Hello
@@ -55,6 +56,7 @@ import { TuiBox, TuiText } from 'vue-termui'
 <script setup>
   import { TuiLink } from 'vue-termui'
 </script>
+
 <template>
   <TuiLink href="https://vue-termui.dev/">Vue TermUI</TuiLink>
 </template>
@@ -85,6 +87,7 @@ import { TuiBox, TuiText } from 'vue-termui'
     disabled.value = !disabled.value
   })
 </script>
+
 <template>
   <TuiBox flex-direction="column">
     <TuiInput label="username: " v-model="username" :disabled="disabled" />

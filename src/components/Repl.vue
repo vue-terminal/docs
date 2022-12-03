@@ -1,15 +1,29 @@
 <script setup lang="ts">
-import { useRoute } from '@/router'
+import { useRoute, useRouter } from '@/router'
 import Input from '@/components/Input.vue'
 import Output from '@/components/Output.vue'
+
 const route = useRoute()
+const router = useRouter()
 const routeParams = route.value.params!
+
 const input = ref(routeParams.code)
+const isEditMode = ref(false)
+function toggleEditMode(value: boolean) {
+  isEditMode.value = value
+}
+onKeyData(['Backspace', 'Delete'], () => {
+  if (isEditMode.value)
+    return
+  router.push('/intro')
+})
 </script>
 
 <template>
-  <div>
-    <Input v-model="input" />
-    <Output :content="input" />
+  <div flex-direction="column">
+    <div>
+      <Input v-model="input" @toggle="toggleEditMode" />
+      <Output :content="input" />
+    </div>
   </div>
 </template>

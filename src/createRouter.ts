@@ -1,6 +1,6 @@
 import { createRouter } from '@/router'
 import Home from '@/components/Home.vue'
-import Components from '@/components/Components.vue'
+import Intro from '@/components/Intro.vue'
 import Repl from '@/components/Repl.vue'
 
 export default createRouter({
@@ -10,8 +10,8 @@ export default createRouter({
       component: Home,
     },
     {
-      path: '/components',
-      component: Components,
+      path: '/intro',
+      component: Intro,
     },
     {
       path: '/repl',

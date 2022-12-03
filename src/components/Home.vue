@@ -3,13 +3,13 @@ import Logo from './Logo.vue'
 import { useRouter } from '@/router'
 const router = useRouter()
 onKeyData(['s', 'S'], () => {
-  router.push('/components')
+  router.push('/intro')
 })
 </script>
 
 <template>
   <div
-    :width="80"
+    :width="100"
     :height="20"
     align-items="center"
     justify-content="center"
@@ -23,7 +23,13 @@ onKeyData(['s', 'S'], () => {
       align-items="center"
       justify-content="center"
     >
-      <span>The Modern Terminal UI Framework</span>
+      <Link
+        href="https://vue-termui.dev/"
+        :fallback="false"
+        :inverse="false"
+      >
+        The Modern Terminal UI Framework
+      </Link>
     </div>
 
     <div

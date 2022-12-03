@@ -62,6 +62,9 @@ watch(() => props.content, () => {
     :minWidth="30"
     :minHeight="10"
     borderStyle="round"
+    borderColor="white"
+    align-items="center"
+    justify-content="center"
     title="Output"
   >
     <DynamicOutputComponent v-if="visible" />

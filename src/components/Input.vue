@@ -13,11 +13,16 @@ const props = withDefaults(
 
 const emit = defineEmits<{
   (event: 'update:modelValue', value: string): void
+  (event: 'toggle', value: boolean): void
 }>()
 
 const { active, disabled } = useFocus({
   // @ts-expect-error: vue bug?
   disabled: toRef(props, 'disabled'),
+})
+
+watch(active, (value) => {
+  emit('toggle', value)
 })
 
 // used for fallback value when no v-model
@@ -157,13 +162,13 @@ onInputData(({ event }) => {
   <div>
     <div
       borderStyle="round"
-      :borderColor="disabled ? 'gray' : active ? 'transparent' : undefined"
+      borderColor="white"
       :minHeight="10"
       :minWidth="30"
       :padding="1"
-      title="Input"
+      title="Input (Toggle Edit Mode: Tab/ESC)"
     >
-      <SyntaxHighlight :code="displayedValue" lang="js" />
+      <SyntaxHighlight :code="displayedValue" />
     </div>
   </div>
 </template>
