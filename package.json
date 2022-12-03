@@ -1,7 +1,7 @@
 {
   "name": "vtui-docs",
   "type": "module",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Interactive docs terminal for vue-termui.",
   "author": "webfansplz",
   "license": "MIT",
@@ -30,7 +30,7 @@
     "@vue/runtime-core": "^3.2.41",
     "vue": "^3.2.41",
     "vue-router": "^4.1.6",
-    "vue-termui": "^0.0.18"
+    "vue-termui": "^0.0.19"
   },
   "devDependencies": {
     "@antfu/eslint-config": "^0.33.0",

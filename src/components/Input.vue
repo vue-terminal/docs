@@ -158,15 +158,10 @@ onInputData(({ event }) => {
 })
 </script>
 
-<template borderStyle="round">
+<template>
   <div>
     <div
-      borderStyle="round"
-      borderColor="white"
-      :minHeight="10"
-      :minWidth="30"
-      :padding="1"
-      title="Input (Toggle Edit Mode: Tab/ESC)"
+      class="border-round border-white min-h-10 min-w-30 p-1"
     >
       <SyntaxHighlight :code="displayedValue" />
     </div>

@@ -1,7 +1,6 @@
 import { createApp } from 'vue-termui'
 import App from './App.vue'
-// import router from './createRouter'
-import { router } from './new-router'
+import { router } from './router'
 
 const app = createApp(App)
 app.use(router)

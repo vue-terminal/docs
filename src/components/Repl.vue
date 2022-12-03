@@ -24,5 +24,20 @@ onKeyData(['Backspace', 'Delete'], () => {
       <Input v-model="input" @toggle="toggleEditMode" />
       <Output :content="input" />
     </div>
+    <div
+      justify-content="flex-end"
+      width="100%"
+      border-color="gray"
+    >
+      <span dimmed>
+        [←] Back
+      </span>
+      <span dimmed>
+        |
+      </span>
+      <span dimmed>
+        [Tab/ESC] Toggle Edit/Preview
+      </span>
+    </div>
   </div>
 </template>

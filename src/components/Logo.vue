@@ -1,14 +1,6 @@
 <template>
   <div
-    flex-direction="column"
-    border-color="whiteBright"
-    bg-color="#42B883"
-    :width="20"
-    :height="8"
-    :padding-x="1"
-    border-style="double"
-    justify-content="center"
-    align-items="flex-start"
+    class="flex-col border-whiteBright bg-#42B883 w-20 h-8 px-1 border-double justify-center align-start"
   >
     <span color="#FF6AF0">
       &nbsp;_________
@@ -28,13 +20,7 @@
         \/__/
       </span>
     </span>
-    <div
-      align-self="flex-end"
-      flex-direction="column"
-      justify-content="flex-end"
-      align-items="flex-end"
-      width="100%"
-    >
+    <div class="self-end flex-col justify-end items-end w-100%">
       <span>[V]ue</span>
       <span>[T]ermUI</span>
     </div>

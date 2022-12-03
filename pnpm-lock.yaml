@@ -16,27 +16,27 @@ specifiers:
   vite-plugin-vue-termui: 0.0.12
   vue: ^3.2.41
   vue-router: ^4.1.6
-  vue-termui: ^0.0.18
+  vue-termui: ^0.0.19
 
 dependencies:
-  '@vue-termui/syntax-highlight': 0.0.2_62b2asaoe5dujnefwnsp7abk6a
+  '@vue-termui/syntax-highlight': 0.0.2_5yxl3xopwpxlrb2s3q6rejlgdi
   '@vue/compiler-sfc': 3.2.45
   '@vue/runtime-core': 3.2.45
   vue: 3.2.45
   vue-router: 4.1.6_vue@3.2.45
-  vue-termui: 0.0.18_@vue+runtime-core@3.2.45
+  vue-termui: 0.0.19_@vue+runtime-core@3.2.45
 
 devDependencies:
   '@antfu/eslint-config': 0.33.1_s5ps7njkmjlaqajutnox5ntcla
   '@types/node': 18.11.10
   '@vitejs/plugin-vue': 3.2.0_vite@3.2.4+vue@3.2.45
-  '@vue-termui/cli': 0.0.17_5z5twkywbe4h4gwq557m3goczi
+  '@vue-termui/cli': 0.0.17_oqgk5zglmxcgq6ksnuo4v4yvte
   eslint: 8.29.0
   typescript: 4.9.3
   unplugin-auto-import: 0.11.5
   unplugin-vue-components: 0.22.11_vue@3.2.45
   vite: 3.2.4_@types+node@18.11.10
-  vite-plugin-vue-termui: 0.0.12_gvvhleauv72fvlosxfq5e2w73y
+  vite-plugin-vue-termui: 0.0.12_6hcn37tki34w7b2oexm2q45on4
 
 packages:
 
@@ -449,7 +449,7 @@ packages:
       vue: 3.2.45
     dev: true
 
-  /@vue-termui/cli/0.0.17_5z5twkywbe4h4gwq557m3goczi:
+  /@vue-termui/cli/0.0.17_oqgk5zglmxcgq6ksnuo4v4yvte:
     resolution: {integrity: sha512-VkY7OVb/UVhHMP6exAwidnb+HgC1/PHdvXJxXrpTOparNI59sD6ByLv5F3MDcx6mCKbkMVAE5P1syTFF88vJNg==}
     engines: {node: '>=14.0.0'}
     hasBin: true
@@ -461,8 +461,8 @@ packages:
       picocolors: 1.0.0
       vite: 3.2.4_@types+node@18.11.10
       vite-node: 0.24.5_@types+node@18.11.10
-      vite-plugin-vue-termui: 0.0.12_gvvhleauv72fvlosxfq5e2w73y
-      vue-termui: 0.0.18_@vue+runtime-core@3.2.45
+      vite-plugin-vue-termui: 0.0.12_6hcn37tki34w7b2oexm2q45on4
+      vue-termui: 0.0.19_@vue+runtime-core@3.2.45
       ws: 8.11.0
     transitivePeerDependencies:
       - '@types/node'
@@ -476,7 +476,7 @@ packages:
       - utf-8-validate
     dev: true
 
-  /@vue-termui/syntax-highlight/0.0.2_62b2asaoe5dujnefwnsp7abk6a:
+  /@vue-termui/syntax-highlight/0.0.2_5yxl3xopwpxlrb2s3q6rejlgdi:
     resolution: {integrity: sha512-ZQec2SDed2tp//JMPZX6KERFWEPJnVMpLC6QgFubWU3ZsD/WykDV637TM/hTY3OqxgPfcmLDQimyP+uBcKDU2g==}
     peerDependencies:
       '@vue/runtime-core': ^3.2.41
@@ -484,7 +484,7 @@ packages:
     dependencies:
       '@vue/runtime-core': 3.2.45
       cli-highlight: 2.1.11
-      vue-termui: 0.0.18_@vue+runtime-core@3.2.45
+      vue-termui: 0.0.19_@vue+runtime-core@3.2.45
     dev: false
 
   /@vue/compiler-core/3.2.45:
@@ -3013,7 +3013,7 @@ packages:
       - terser
     dev: true
 
-  /vite-plugin-vue-termui/0.0.12_gvvhleauv72fvlosxfq5e2w73y:
+  /vite-plugin-vue-termui/0.0.12_6hcn37tki34w7b2oexm2q45on4:
     resolution: {integrity: sha512-WQly7qtVbFTYqB94acsMwL7bWDBql4FmjHUI7AnvEK2gV8B29GDJAXSVJZytafTbHqL3Q28HJRz+k0I6NRMBwg==}
     peerDependencies:
       '@vitejs/plugin-vue': ^3.0.3
@@ -3026,7 +3026,7 @@ packages:
       unplugin-auto-import: 0.11.5
       unplugin-vue-components: 0.22.11_vue@3.2.45
       vue: 3.2.45
-      vue-termui: 0.0.18_@vue+runtime-core@3.2.45
+      vue-termui: 0.0.19_@vue+runtime-core@3.2.45
     dev: true
 
   /vite/3.2.4_@types+node@18.11.10:
@@ -3090,8 +3090,8 @@ packages:
       vue: 3.2.45
     dev: false
 
-  /vue-termui/0.0.18_@vue+runtime-core@3.2.45:
-    resolution: {integrity: sha512-UhAr7P0f8arJnL6ZskjuGK5x9n44sw3VunnJlWV1p4RgE4ID//BWvXuEsF1+kUzRrTKBmlApgCHaGLVVrJMiwg==}
+  /vue-termui/0.0.19_@vue+runtime-core@3.2.45:
+    resolution: {integrity: sha512-UZNYJqQplOBTfDPmJjd1ouTEvaymmubrKtgULlO4sEZV5MRG/HIb4aYxzjqGPM5jv4bOzDUcsoGODyxerZrpSQ==}
     engines: {node: '>=14.0.0'}
     peerDependencies:
       '@vue/runtime-core': ^3.2.33

@@ -2,7 +2,7 @@
 import { useRouter } from 'vue-router'
 import Logo from './Logo.vue'
 const router = useRouter()
-onKeyData(['s', 'S'], () => {
+onKeyData(['Enter'], () => {
   router.push('/intro')
 })
 </script>
@@ -40,7 +40,7 @@ onKeyData(['s', 'S'], () => {
       border-style="single"
       border-color="yellow"
     >
-      <span color="yellow">Get Started (S)</span>
+      <span color="yellow">Get Started</span>
     </div>
   </div>
 </template>

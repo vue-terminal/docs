@@ -58,13 +58,7 @@ watch(() => props.content, () => {
 
 <template>
   <div
-    :padding="1"
-    :minWidth="30"
-    :minHeight="10"
-    borderStyle="round"
-    borderColor="white"
-    align-items="center"
-    justify-content="center"
+    class="p-1 min-w-30 min-h-10 border-white border-round items-center"
     title="Output"
   >
     <DynamicOutputComponent v-if="visible" />
