@@ -1,6 +1,6 @@
 <script setup lang="ts">
+import { useRouter } from 'vue-router'
 import Logo from './Logo.vue'
-import { useRouter } from '@/router'
 const router = useRouter()
 onKeyData(['s', 'S'], () => {
   router.push('/intro')

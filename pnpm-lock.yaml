@@ -15,6 +15,7 @@ specifiers:
   vite: ^3.2.2
   vite-plugin-vue-termui: 0.0.12
   vue: ^3.2.41
+  vue-router: ^4.1.6
   vue-termui: ^0.0.18
 
 dependencies:
@@ -22,6 +23,7 @@ dependencies:
   '@vue/compiler-sfc': 3.2.45
   '@vue/runtime-core': 3.2.45
   vue: 3.2.45
+  vue-router: 4.1.6_vue@3.2.45
   vue-termui: 0.0.18_@vue+runtime-core@3.2.45
 
 devDependencies:
@@ -518,6 +520,10 @@ packages:
     dependencies:
       '@vue/compiler-dom': 3.2.45
       '@vue/shared': 3.2.45
+
+  /@vue/devtools-api/6.4.5:
+    resolution: {integrity: sha512-JD5fcdIuFxU4fQyXUu3w2KpAJHzTVdN+p4iOX2lMWSHMOoQdMAcpFLZzm9Z/2nmsoZ1a96QEhZ26e50xLBsgOQ==}
+    dev: false
 
   /@vue/reactivity-transform/3.2.45:
     resolution: {integrity: sha512-BHVmzYAvM7vcU5WmuYqXpwaBHjsS8T63jlKGWVtHxAHIoMIlmaMyurUSEs1Zcg46M4AYT5MtB1U274/2aNzjJQ==}
@@ -3074,6 +3080,15 @@ packages:
     transitivePeerDependencies:
       - supports-color
     dev: true
+
+  /vue-router/4.1.6_vue@3.2.45:
+    resolution: {integrity: sha512-DYWYwsG6xNPmLq/FmZn8Ip+qrhFEzA14EI12MsMgVxvHFDYvlr4NXpVF5hrRH1wVcDP8fGi5F4rxuJSl8/r+EQ==}
+    peerDependencies:
+      vue: ^3.2.0
+    dependencies:
+      '@vue/devtools-api': 6.4.5
+      vue: 3.2.45
+    dev: false
 
   /vue-termui/0.0.18_@vue+runtime-core@3.2.45:
     resolution: {integrity: sha512-UhAr7P0f8arJnL6ZskjuGK5x9n44sw3VunnJlWV1p4RgE4ID//BWvXuEsF1+kUzRrTKBmlApgCHaGLVVrJMiwg==}
