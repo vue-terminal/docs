@@ -12,6 +12,7 @@ dist
 dist-ssr
 *.local
 .eslintcache
+_vtui-dynamic-output.mjs
 
 # Editor directories and files
 .vscode/*

@@ -1,6 +1,8 @@
 <script setup lang="ts">
-import { execa } from 'execa'
-import SyntaxHighlight from '@vue-termui/syntax-highlight'
+import fs from 'node:fs'
+import path, { dirname } from 'node:path'
+import { fileURLToPath } from 'node:url'
+import { compile } from '@/compiler'
 
 const props = defineProps({
   content: {
@@ -9,28 +11,30 @@ const props = defineProps({
   },
 })
 
+const __filename = fileURLToPath(import.meta.url)
+const __dirname = dirname(__filename)
+const modulePath = path.resolve(__dirname, './_vtui-dynamic-output.mjs')
+async function importFresh(modulePath: string) {
+  const cacheBustingModulePath = `${modulePath}?update=${Date.now()}`
+  return (await import(cacheBustingModulePath)).default
+}
+let DynamicOutputComponent = {
+  setup() {
+  },
+}
+
 const output = ref('...')
+const visible = ref(false)
 let timer: NodeJS.Timer | null = null
 let execTimer: NodeJS.Timer | null = null
-
 async function exec() {
   try {
-    const result = await execa('node', [
-      '--no-warnings',
-      // '-r',
-      // 'ts-node/register',
-      // '--loader',
-      // 'ts-node/esm',
-      '--experimental-json-modules', // use asserts {type :'json'} for import json file
-      '--input-type=module',
-      '-e',
-    `"${props.content.replace(/"/g, '\'')}"`,
-    ], {
-      stdio: 'pipe',
-      shell: true,
+    visible.value = false
+    const content = compile(props.content)
+    fs.writeFile(modulePath, content, async () => {
+      DynamicOutputComponent = await importFresh(modulePath)
+      visible.value = true
     })
-    if (!result.exitCode)
-      output.value = result.stdout ? result.stdout : '...'
   }
   catch (e: Error) {
     output.value = e.message
@@ -38,15 +42,17 @@ async function exec() {
 }
 
 watch(() => props.content, () => {
+  visible.value = false
   clearTimeout(timer!)
   clearInterval(execTimer!)
-  output.value = 'typing...'
   execTimer = setTimeout(() => {
-    output.value = 'running...'
+    output.value = 'compiling...'
   }, 1000)
   timer = setTimeout(() => {
     exec()
   }, 2000)
+}, {
+  immediate: true,
 })
 </script>
 
@@ -58,6 +64,7 @@ watch(() => props.content, () => {
     borderStyle="round"
     title="Output"
   >
-    <SyntaxHighlight :code="output" lang="js" />
+    <DynamicOutputComponent v-if="visible" />
+    <span v-else>{{ output }}</span>
   </div>
 </template>

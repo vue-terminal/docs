@@ -13,29 +13,25 @@ export interface RouterOptions {
 
 export interface Router<Options extends RouterOptions = RouterOptions> {
   readonly options: Options
-  push(to: string): void
+  push(to: string | RouteLocation): void
   install(app: App): void
 }
 
 export interface RouteLocation {
   path: string
   params?: Record<string, string>
-  query?: Record<string, string>
 }
 export const START_LOCATION_NORMALIZED: RouteLocation = {
   path: '/',
   params: {},
-  query: {},
 }
 
 export function createRouter<Options extends RouterOptions>(options: Options): Router<Options> {
   const currentRoute = ref(
     START_LOCATION_NORMALIZED,
   )
-  const push = (to: string) => {
-    currentRoute.value = {
-      path: to,
-    }
+  const push = (to: string | RouteLocation) => {
+    currentRoute.value = typeof to === 'string' ? { path: to } : to
   }
 
   const activeRoute = computed(() => {

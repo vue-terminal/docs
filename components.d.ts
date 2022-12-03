@@ -13,6 +13,7 @@ declare module '@vue/runtime-core' {
     Input: typeof import('./src/components/Input.vue')['default']
     Logo: typeof import('./src/components/Logo.vue')['default']
     Output: typeof import('./src/components/Output.vue')['default']
+    Repl: typeof import('./src/components/Repl.vue')['default']
     Span: typeof import('vue-termui')['TuiText']
   }
 }

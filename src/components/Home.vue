@@ -1,5 +1,10 @@
 <script setup lang="ts">
 import Logo from './Logo.vue'
+import { useRouter } from '@/router'
+const router = useRouter()
+onKeyData(['s', 'S'], () => {
+  router.push('/components')
+})
 </script>
 
 <template>

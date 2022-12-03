@@ -18,7 +18,6 @@ const emit = defineEmits<{
 const { active, disabled } = useFocus({
   // @ts-expect-error: vue bug?
   disabled: toRef(props, 'disabled'),
-  active: true,
 })
 
 // used for fallback value when no v-model
@@ -73,11 +72,11 @@ onInputData(({ event }) => {
     if (isKeyDataEvent(event)) {
       switch (event.key) {
         case 'Enter':
-          text.value = `${text.value}\n`
+          text.value = `${text.value.slice(0, cursorPosition.value)}` + '\n\n' + `${text.value.slice(cursorPosition.value + 1)}`
           nextTick(() => {
             cursorPosition.value = Math.min(
               text.value.length,
-              cursorPosition.value + 2,
+              cursorPosition.value + 1,
             )
           })
           break
@@ -140,7 +139,6 @@ onInputData(({ event }) => {
             && !event.altKey
             && !event.ctrlKey
             && !event.metaKey
-            && !event.shiftKey
           ) {
             text.value
               = text.value.slice(0, cursorPosition.value)
