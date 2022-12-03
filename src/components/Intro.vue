@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { useRouter } from '@/router'
+import { useRouter } from 'vue-router'
 import { components, composables } from '@/constants'
 const router = useRouter()
 const n = ref(0)
@@ -19,7 +19,7 @@ onKeyData(['ArrowRight', 'ArrowDown', 'Tab'], () => {
 onKeyData(['Enter'], () => {
   router.push({
     path: '/repl',
-    params: [...components, ...composables][n.value],
+    query: { ...[...components, ...composables][n.value] },
   })
 })
 </script>

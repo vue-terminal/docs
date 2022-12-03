@@ -1,13 +1,12 @@
 <script setup lang="ts">
-import { useRoute, useRouter } from '@/router'
+import { useRoute, useRouter } from 'vue-router'
 import Input from '@/components/Input.vue'
 import Output from '@/components/Output.vue'
 
 const route = useRoute()
 const router = useRouter()
-const routeParams = route.value.params!
 
-const input = ref(routeParams.code)
+const input = ref(route.query.code as string || '')
 const isEditMode = ref(false)
 function toggleEditMode(value: boolean) {
   isEditMode.value = value

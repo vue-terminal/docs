@@ -15,6 +15,8 @@ declare module '@vue/runtime-core' {
     Logo: typeof import('./src/components/Logo.vue')['default']
     Output: typeof import('./src/components/Output.vue')['default']
     Repl: typeof import('./src/components/Repl.vue')['default']
+    RouterLink: typeof import('vue-router')['RouterLink']
+    RouterView: typeof import('vue-router')['RouterView']
     Span: typeof import('vue-termui')['TuiText']
   }
 }
