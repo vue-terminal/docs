@@ -155,16 +155,6 @@ onInputData(({ event }) => {
           break
       }
     }
-    else if (isInputDataEvent(event)) {
-      if (event.data === 'b') {
-        if (cursorPosition.value > 0) {
-          text.value
-              = text.value.slice(0, cursorPosition.value - 1)
-              + text.value.slice(cursorPosition.value)
-          cursorPosition.value--
-        }
-      }
-    }
   }
 })
 </script>
