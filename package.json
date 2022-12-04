@@ -1,7 +1,7 @@
 {
   "name": "vtui-docs",
   "type": "module",
-  "version": "0.0.3",
+  "version": "0.0.6",
   "description": "Interactive docs terminal for vue-termui.",
   "author": "webfansplz",
   "license": "MIT",
@@ -16,8 +16,11 @@
     "vue-termui"
   ],
   "bin": {
-    "vtui-docs": "./dist/main.mjs"
+    "vtui-docs": "./cli.mjs"
   },
+  "files": [
+    "dist/*.mjs"
+  ],
   "scripts": {
     "dev": "vtui dev",
     "build": "vtui build",

@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import fs from 'node:fs'
 import path, { dirname } from 'node:path'
-import { fileURLToPath } from 'node:url'
+import { fileURLToPath, pathToFileURL } from 'node:url'
 import { compile } from '@/compiler'
 
 const props = defineProps({
@@ -13,11 +13,11 @@ const props = defineProps({
 
 const __filename = fileURLToPath(import.meta.url)
 const __dirname = dirname(__filename)
-const modulePath = path.resolve(__dirname, './_vtui-dynamic-output.mjs')
-async function importFresh(modulePath: string) {
-  const cacheBustingModulePath = `${modulePath}?update=${Date.now()}`
-  return (await import(cacheBustingModulePath)).default
+async function importAbs(targetPath: string) {
+  const fileUrl = pathToFileURL(targetPath).href
+  return await import(fileUrl)
 }
+
 let DynamicOutputComponent = {
   setup() {
   },
@@ -31,8 +31,11 @@ async function exec() {
   try {
     visible.value = false
     const content = compile(props.content)
+    const modulePath = path.resolve(__dirname, `./_vtui-dynamic-output-${Date.now()}.js`)
     fs.writeFile(modulePath, content, async () => {
-      DynamicOutputComponent = await importFresh(modulePath)
+      const file = await importAbs(modulePath)
+      DynamicOutputComponent = file.default
+      fs.unlink(modulePath, () => {})
       visible.value = true
     })
   }
