@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { computed, ref, toRef } from '@vue/runtime-core'
 import SyntaxHighlight from '@vue-termui/syntax-highlight'
-import { isKeyDataEvent, onInputData, useFocus } from 'vue-termui'
+import { isInputDataEvent, isKeyDataEvent, onInputData, useFocus } from 'vue-termui'
 
 const props = withDefaults(
   defineProps<{
@@ -102,6 +102,7 @@ onInputData(({ event }) => {
           break
 
         case 'Backspace':
+        case 'Delete':
           if (cursorPosition.value > 0) {
             text.value
               = text.value.slice(0, cursorPosition.value - 1)
@@ -152,6 +153,16 @@ onInputData(({ event }) => {
             cursorPosition.value++
           }
           break
+      }
+    }
+    else if (isInputDataEvent(event)) {
+      if (event.data === 'b') {
+        if (cursorPosition.value > 0) {
+          text.value
+              = text.value.slice(0, cursorPosition.value - 1)
+              + text.value.slice(cursorPosition.value)
+          cursorPosition.value--
+        }
       }
     }
   }
