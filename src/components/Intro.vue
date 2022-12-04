@@ -9,6 +9,13 @@ onKeyData(['Backspace', 'Delete'], () => {
   router.push('/')
 })
 
+// windows only
+onInputData((event) => {
+  if (event.data !== '\b')
+    return
+  router.push('/')
+})
+
 onKeyData(['ArrowLeft'], () => {
   n.value = (n.value - 1 + total) % total
 })

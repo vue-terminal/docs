@@ -11,10 +11,20 @@ const isEditMode = ref(false)
 function toggleEditMode(value: boolean) {
   isEditMode.value = value
 }
-onKeyData(['Backspace', 'Delete'], () => {
+
+function back() {
   if (isEditMode.value)
     return
   router.push('/intro')
+}
+
+onKeyData(['Backspace', 'Delete'], back)
+
+// windows only
+onInputData((event) => {
+  if (event.data !== '\b')
+    return
+  back()
 })
 </script>
 
