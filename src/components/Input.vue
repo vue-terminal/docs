@@ -1,7 +1,9 @@
 <script setup lang="ts">
-import { computed, ref, toRef } from '@vue/runtime-core'
+import { computed, ref } from '@vue/runtime-core'
 import SyntaxHighlight from '@vue-termui/syntax-highlight'
-import { isInputDataEvent, isKeyDataEvent, onInputData, useFocus } from 'vue-termui'
+import { isInputDataEvent, isKeyDataEvent, onInputData } from 'vue-termui'
+import { useRoute } from 'vue-router'
+import { useFocus } from '@/composables'
 
 const props = withDefaults(
   defineProps<{
@@ -16,13 +18,17 @@ const emit = defineEmits<{
   (event: 'toggle', value: boolean): void
 }>()
 
-const { active, disabled } = useFocus({
-  // @ts-expect-error: vue bug?
-  disabled: toRef(props, 'disabled'),
-})
+const route = useRoute()
+const title = ref(route.query.name as string || '')
 
-watch(active, (value) => {
-  emit('toggle', value)
+const { active, disabled, isFocus } = useFocus()
+
+onInputData((event) => {
+  // Ctrl + T
+  if (event.data === '\x14') {
+    isFocus.value = !isFocus.value
+    emit('toggle', active.value)
+  }
 })
 
 // used for fallback value when no v-model
@@ -175,6 +181,7 @@ onInputData((evt) => {
   <div>
     <div
       class="border-round border-white min-h-10 min-w-30 p-1"
+      :title="title"
     >
       <SyntaxHighlight :code="displayedValue" />
     </div>

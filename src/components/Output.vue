@@ -27,6 +27,7 @@ const output = ref('...')
 const visible = ref(false)
 let timer: NodeJS.Timer | null = null
 let execTimer: NodeJS.Timer | null = null
+
 async function exec() {
   try {
     visible.value = false
@@ -41,6 +42,7 @@ async function exec() {
   }
   catch (e: Error) {
     output.value = e.message
+    visible.value = false
   }
 }
 

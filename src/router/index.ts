@@ -1,6 +1,6 @@
 import { createMemoryHistory, createRouter } from 'vue-router'
 import Home from '@/components/Home.vue'
-import Intro from '@/components/Intro.vue'
+import Nav from '@/components/Nav.vue'
 import Repl from '@/components/Repl.vue'
 
 export const router = createRouter({
@@ -8,14 +8,17 @@ export const router = createRouter({
   routes: [
     {
       path: '/',
+      name: 'home',
       component: Home,
     },
     {
-      path: '/intro',
-      component: Intro,
+      path: '/nav',
+      name: 'nav',
+      component: Nav,
     },
     {
       path: '/repl',
+      name: 'repl',
       component: Repl,
     },
   ],

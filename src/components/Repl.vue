@@ -15,11 +15,10 @@ function toggleEditMode(value: boolean) {
 function back() {
   if (isEditMode.value)
     return
-  router.push('/intro')
+  router.push('/nav')
 }
 
 onKeyData(['Backspace', 'Delete'], back)
-
 // windows only
 onInputData((event) => {
   if (event.data !== '\b')
@@ -46,7 +45,7 @@ onInputData((event) => {
         |
       </span>
       <span dimmed>
-        [Tab/ESC] Toggle Edit/Preview
+        [Ctrl+T] Toggle Edit/Preview
       </span>
     </div>
   </div>

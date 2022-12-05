@@ -3,7 +3,7 @@ import { useRouter } from 'vue-router'
 import Logo from './Logo.vue'
 const router = useRouter()
 onKeyData(['Enter'], () => {
-  router.push('/intro')
+  router.push('/nav')
 })
 </script>
 

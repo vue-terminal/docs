@@ -1,16 +1,17 @@
 <script lang="ts" setup>
-import type { KeyDataEvent } from 'vue-termui'
+import { isKeyDataEvent } from 'vue-termui'
 import { useRoute } from 'vue-router'
+
 const route = useRoute()
-const routePath = computed(() => route.path)
+const routeName = computed(() => route.name as string)
+
 // Exit the process manually when press ctrl + c
-const stop = onInputData((e) => {
-  const event = e.event as KeyDataEvent
-  if (!event?.key)
-    return
-  if (event!.key === 'C' && event!.ctrlKey) {
-    stop()
-    process.exit(0)
+const stop = onInputData(({ event }) => {
+  if (isKeyDataEvent(event)) {
+    if (event.key === 'C' && event.ctrlKey) {
+      stop()
+      process.exit(0)
+    }
   }
 })
 </script>
@@ -20,15 +21,17 @@ const stop = onInputData((e) => {
     <RouterView />
   </div>
   <div
-    v-if="['/', '/intro'].includes(routePath)"
+    v-if="['home', 'intro'].includes(routeName)"
     class="justify-end width-100 border-gray"
   >
-    <span v-if="routePath === '/intro'" dimmed>
-      [↔↕] Toggle
-    </span>
-    <span v-if="routePath === '/intro'" dimmed>
-      |
-    </span>
+    <template v-if="routeName === 'intro'">
+      <span dimmed>
+        [↔↕] Toggle
+      </span>
+      <span dimmed>
+        |
+      </span>
+    </template>
     <span dimmed>
       [Enter] Select
     </span>
