@@ -72,9 +72,21 @@ function calcCursorPosition(index: number, type = 'prev') {
   }
 }
 
-onInputData(({ event }) => {
+onInputData((evt) => {
   if (active.value && !disabled.value) {
-    if (isKeyDataEvent(event)) {
+    // windows only
+    if (isInputDataEvent(evt)) {
+      if (evt.data === '\b') {
+        if (cursorPosition.value > 0) {
+          text.value
+              = text.value.slice(0, cursorPosition.value - 1)
+              + text.value.slice(cursorPosition.value)
+          cursorPosition.value--
+        }
+      }
+    }
+    if (isKeyDataEvent(evt.event)) {
+      const event = evt.event
       switch (event.key) {
         case 'Enter':
           text.value = `${text.value.slice(0, cursorPosition.value)}` + '\n\n' + `${text.value.slice(cursorPosition.value + 1)}`

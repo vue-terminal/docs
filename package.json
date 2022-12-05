@@ -1,7 +1,7 @@
 {
   "name": "vtui-docs",
   "type": "module",
-  "version": "0.0.12",
+  "version": "0.0.14",
   "description": "Interactive docs terminal for vue-termui.",
   "author": "webfansplz",
   "license": "MIT",
@@ -28,7 +28,7 @@
     "lint:fix": "pnpm run lint --fix"
   },
   "dependencies": {
-    "@vue-termui/syntax-highlight": "^0.0.2",
+    "@vue-termui/syntax-highlight": "^0.0.3",
     "@vue/compiler-sfc": "^3.2.41",
     "@vue/runtime-core": "^3.2.41",
     "vue": "^3.2.41",
