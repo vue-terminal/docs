@@ -1,14 +1,14 @@
 {
-  "name": "vtui-docs",
+  "name": "@vue-termui/docs",
   "type": "module",
-  "version": "0.0.14",
+  "version": "0.0.1",
   "description": "Interactive docs terminal for vue-termui.",
   "author": "webfansplz",
   "license": "MIT",
-  "homepage": "https://github.com/webfansplz/vtui-docs#readme",
+  "homepage": "https://github.com/vue-terminal/docs#readme",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/webfansplz/vtui-docs.git"
+    "url": "git+https://github.com/vue-terminal/docs.git"
   },
   "keywords": [
     "vue",

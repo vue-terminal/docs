@@ -16,14 +16,14 @@ Interactive docs terminal for <a href="https://github.com/vue-terminal/vue-termu
 ## 📺 Preview
 
 <p>
- <img src="./vtui-docs.gif" width="800" alt="VTui Docs">
+ <img src="./docs.gif" width="800" alt="VTui Docs">
 </p>
 
 
 ## 📦 Install
 
 ```sh
-npm install vtui-docs -g
+npm install @vue-termui/docs -g
 ```
 
 ## 🎮 Usage
