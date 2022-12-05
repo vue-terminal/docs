@@ -21,10 +21,10 @@ const stop = onInputData(({ event }) => {
     <RouterView />
   </div>
   <div
-    v-if="['home', 'intro'].includes(routeName)"
+    v-if="['home', 'nav'].includes(routeName)"
     class="justify-end width-100 border-gray"
   >
-    <template v-if="routeName === 'intro'">
+    <template v-if="routeName === 'nav'">
       <span dimmed>
         [↔↕] Toggle
       </span>
