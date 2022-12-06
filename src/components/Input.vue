@@ -166,7 +166,7 @@ onInputData((evt) => {
           ) {
             text.value
               = text.value.slice(0, cursorPosition.value)
-              + event.key
+              + evt.data
               + text.value.slice(cursorPosition.value)
             cursorPosition.value++
           }
