@@ -183,7 +183,7 @@ onInputData((evt) => {
       class="border-round border-white min-h-10 min-w-30 p-1"
       :title="title"
     >
-      <SyntaxHighlight :code="displayedValue" />
+      <SyntaxHighlight :code="displayedValue" lang="vue-html" />
     </div>
   </div>
 </template>
